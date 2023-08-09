@@ -17,7 +17,8 @@ import org.junit.runner.RunWith;
         glue="com/cydeo/library/step_definitions",
         dryRun = false,
         tags="@wip",
-        publish = false
+        stepNotifications = true,
+        publish = true
 
 
 )
