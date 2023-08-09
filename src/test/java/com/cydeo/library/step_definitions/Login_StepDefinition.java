@@ -2,6 +2,7 @@ package com.cydeo.library.step_definitions;
 
 import com.cydeo.library.pages.DashboardPage;
 import com.cydeo.library.pages.LoginPage;
+import com.cydeo.library.utilities.BrowserUtils;
 import com.cydeo.library.utilities.ConfigurationReader;
 import com.cydeo.library.utilities.Driver;
 import com.cydeo.library.utilities.LibraryConstants;
@@ -94,13 +95,14 @@ public class Login_StepDefinition {
 
     }
 
-    @When("I login as a librarian")
-    public void i_login_as_a_librarian() {
-        System.out.println("Logging in as a librarian");
-        String email = ConfigurationReader.getProperty("librarian_email");
-        String password = ConfigurationReader.getProperty("librarian_password");
-        loginPage.login(email, password);
+    @When("the user logged in as {string}")
+    public void theUserLoggedInAs(String userType) {
+        System.out.println("Logging in as a "+userType);
+        loginPage.login(userType);
+        BrowserUtils.waitFor(4);
     }
+
+
 
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
@@ -155,6 +157,7 @@ public class Login_StepDefinition {
         }
         loginPage.login(email, password);
     }
+
 
 
 }

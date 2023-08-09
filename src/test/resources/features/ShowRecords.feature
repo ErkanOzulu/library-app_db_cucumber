@@ -2,9 +2,9 @@ Feature:
 
   Background:
     Given user is on the login page
-@wip
+
   Scenario: Login as Librarian
-    Given I login as a librarian
+    Given the user logged in as "librarian"
     When I click on "users" link
     And show records default value should be 10
     Then show records should have following options:
